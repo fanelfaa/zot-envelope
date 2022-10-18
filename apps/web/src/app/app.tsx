@@ -19,7 +19,7 @@ export function App() {
 						</RequireAuth>
 					}
 				/>
-				<Route path="/login" element={<LoginFeature />} />
+				<Route path="login" element={<LoginFeature />} />
 			</Routes>
 		</ChakraProvider>
 	);
