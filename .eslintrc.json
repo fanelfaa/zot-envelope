@@ -2,9 +2,12 @@
   "root": true,
   "ignorePatterns": ["**/*"],
   "plugins": ["@nrwl/nx"],
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "plugins": ["unused-imports", "simple-import-sort"],
+      "extends": ["plugin:prettier/recommended"],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
@@ -18,13 +21,30 @@
               }
             ]
           }
-        ]
+        ],
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": "off",
+        "import/extensions": "off",
+        "import/prefer-default-export": "off",
+        "import/no-named-as-default": "off"
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "extends": ["plugin:@nrwl/nx/typescript", "airbnb-typescript"],
+      "plugins": ["@typescript-eslint"],
+      "parserOptions": {
+        "project": "./tsconfig.*?.json"
+      },
+      "rules": {
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/semi": "off"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
@@ -38,5 +58,17 @@
       },
       "rules": {}
     }
-  ]
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "arrowParens": "always",
+        "useTabs": true,
+        "semi": false
+      }
+    ]
+  }
 }

@@ -1,0 +1,19 @@
+{
+  "editor.tabSize": 3,
+  "editor.detectIndentation": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "package-lock.json": true
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.fixAll.eslint"
+  ],
+  "[json][jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
