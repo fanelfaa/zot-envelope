@@ -7,7 +7,6 @@ export function App() {
     <>
       <NxWelcome title="web" />
       <div />
-      <span>By Fandi Ilham</span>
     </>
   );
 }
