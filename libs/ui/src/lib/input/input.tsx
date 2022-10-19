@@ -1,16 +1,14 @@
 import type {
-	BoxProps,
 	FormControlProps,
 	FormErrorMessageProps,
 	InputProps as ChakraInputProps,
 	TextProps,
 } from '@chakra-ui/react';
 import {
-	Box,
 	FormControl,
 	FormErrorMessage,
+	FormLabel,
 	Input as ChakraInput,
-	Text,
 } from '@chakra-ui/react';
 
 export type InputProps = {
@@ -20,9 +18,7 @@ export type InputProps = {
 	inputProps?: ChakraInputProps;
 	labelProps?: TextProps;
 	errorProps?: FormErrorMessageProps;
-	formControlProps?: FormControlProps;
-} & Omit<BoxProps, 'onChange'> &
-	Pick<FormControlProps, 'isInvalid' | 'isDisabled' | 'isRequired'> &
+} & FormControlProps &
 	Pick<ChakraInputProps, 'value' | 'type' | 'name'>;
 
 export function Input({
@@ -30,7 +26,6 @@ export function Input({
 	value,
 	name,
 	type,
-	labelProps,
 	inputProps,
 	errorProps,
 	error,
@@ -38,30 +33,19 @@ export function Input({
 	isInvalid,
 	isDisabled,
 	isRequired,
-	formControlProps,
-	...boxProps
+	...formControlProps
 }: InputProps) {
 	return (
-		<Box pos="relative" {...boxProps}>
-			<FormControl
-				isInvalid={isInvalid}
-				isDisabled={isDisabled}
-				isRequired={isRequired}
-				colorScheme="envelope"
-				{...formControlProps}
-			>
-				<ChakraInput
-					size="lg"
-					placeholder=""
-					onChange={onChange}
-					value={value}
-					type={type}
-					name={name}
-					{...inputProps}
-				/>
-				<FormErrorMessage {...errorProps}>{error}</FormErrorMessage>
-			</FormControl>
-			<Text
+		// <Box pos="relative" {...boxProps}>
+		<FormControl
+			isInvalid={isInvalid}
+			isDisabled={isDisabled}
+			isRequired={isRequired}
+			colorScheme="envelope"
+			pos="relative"
+			{...formControlProps}
+		>
+			<FormLabel
 				pos="absolute"
 				left="2"
 				top="-3.5"
@@ -69,11 +53,24 @@ export function Input({
 				zIndex="5"
 				px="2"
 				rounded="base"
-				{...labelProps}
+				data-testid="label"
 			>
 				{label}
-			</Text>
-		</Box>
+			</FormLabel>
+			<ChakraInput
+				size="lg"
+				placeholder=""
+				onChange={onChange}
+				value={value}
+				type={type}
+				name={name}
+				{...inputProps}
+				data-testid="input"
+			/>
+			<FormErrorMessage {...errorProps} data-testid="error">
+				{error}
+			</FormErrorMessage>
+		</FormControl>
 	);
 }
 
