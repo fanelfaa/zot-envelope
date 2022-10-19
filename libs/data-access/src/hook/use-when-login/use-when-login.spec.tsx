@@ -1,11 +1,11 @@
 import { act, renderHook } from '@testing-library/react';
 import * as React from 'react';
 
-import useLoginStore from './use-login-store';
+import useWhenLogin from './use-when-login';
 
-describe('useLoginStore', () => {
+describe('useWhenLogin', () => {
   it('should render successfully', () => {
-    const { result } = renderHook(() => useLoginStore());
+    const { result } = renderHook(() => useWhenLogin());
 
     expect(result.current.count).toBe(0);
 
