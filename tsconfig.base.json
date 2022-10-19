@@ -15,7 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@zot-envelope/data-access": ["libs/data-access/src/index.ts"],
       "@zot-envelope/feature": ["libs/feature/src/index.ts"],
+      "@zot-envelope/login/data-access": [
+        "libs/login/data-access/src/index.ts"
+      ],
       "@zot-envelope/login/feature": ["libs/login/feature/src/index.ts"],
       "@zot-envelope/ui": ["libs/ui/src/index.ts"]
     }

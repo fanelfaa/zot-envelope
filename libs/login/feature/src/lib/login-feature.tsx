@@ -1,12 +1,11 @@
-import { Box, Center, Flex, Grid, Heading, Link, Text } from '@chakra-ui/react';
+import { Box, Center, Grid, Heading, Text } from '@chakra-ui/react';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Input } from '@zot-envelope/ui';
+import { Button } from '@zot-envelope/ui';
 
-/* eslint-disable-next-line */
-export interface LoginFeatureProps {}
+import LoginForm from './login-form/login-form';
 
-export function LoginFeature(props: LoginFeatureProps) {
+export function LoginFeature() {
 	return (
 		<Grid gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }} color="white">
 			<Box
@@ -41,7 +40,7 @@ export function LoginFeature(props: LoginFeatureProps) {
 						<Heading
 							size="2xl"
 							color="primaryDark"
-							mb="4"
+							mb="3"
 							fontWeight="extrabold"
 						>
 							Welcome back
@@ -49,21 +48,7 @@ export function LoginFeature(props: LoginFeatureProps) {
 						<Heading size="lg" mb="9">
 							Sign in to continue
 						</Heading>
-						<Box as="form" shadow="md" bg="white" rounded="xl" w="full" p="10">
-							<Input label="Email" type="email" mb="6" isRequired />
-							<Input label="Password" type="password" mb="3" isRequired />
-							<Box mb="7" fontSize="sm">
-								<Link color="primary">Forgot password?</Link>
-							</Box>
-							<Flex justifyContent="space-between" alignItems="center">
-								<Box as="span" fontSize="sm">
-									New user? <Link color="primary">Create account</Link>
-								</Box>
-								<Button variant="solid" px="5" type="submit">
-									Sign in
-								</Button>
-							</Flex>
-						</Box>
+						<LoginForm />
 					</Box>
 				</Center>
 			</Box>

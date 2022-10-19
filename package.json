@@ -23,7 +23,8 @@
     "react-dom": "18.2.0",
     "react-router-dom": "6.4.1",
     "regenerator-runtime": "0.13.7",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zustand": "^4.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",

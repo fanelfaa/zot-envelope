@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useUserStore } from '@zot-envelope/data-access';
 import { Navigate, useLocation } from 'react-router-dom';
 
 export const RequireAuth = ({ children }: { children: JSX.Element }) => {
 	const location = useLocation();
-	const [authUser, setAuthUser] = useState();
+	const apikey = useUserStore((state) => state.apikey);
 
-	if (!authUser) {
+	if (!apikey) {
 		return <Navigate to="/login" state={{ from: location }} replace />;
 	}
 

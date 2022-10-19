@@ -16,17 +16,19 @@ import {
 export type InputProps = {
 	label: string;
 	error?: string;
+	onChange?: React.ChangeEventHandler<HTMLInputElement>;
 	inputProps?: ChakraInputProps;
 	labelProps?: TextProps;
 	errorProps?: FormErrorMessageProps;
 	formControlProps?: FormControlProps;
-} & BoxProps &
+} & Omit<BoxProps, 'onChange'> &
 	Pick<FormControlProps, 'isInvalid' | 'isDisabled' | 'isRequired'> &
-	Pick<ChakraInputProps, 'onChange' | 'value' | 'type'>;
+	Pick<ChakraInputProps, 'value' | 'type' | 'name'>;
 
 export function Input({
 	onChange,
 	value,
+	name,
 	type,
 	labelProps,
 	inputProps,
@@ -54,6 +56,7 @@ export function Input({
 					onChange={onChange}
 					value={value}
 					type={type}
+					name={name}
 					{...inputProps}
 				/>
 				<FormErrorMessage {...errorProps}>{error}</FormErrorMessage>
@@ -65,6 +68,7 @@ export function Input({
 				bg="white"
 				zIndex="5"
 				px="2"
+				rounded="base"
 				{...labelProps}
 			>
 				{label}
