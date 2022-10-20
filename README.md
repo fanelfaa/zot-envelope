@@ -12,6 +12,17 @@ atau wa ke nomor :
 > Have a nice day!!
 <br/>
 
+## Run Localy
+- Pertama install dependencies:
+```
+npm i -f
+```
+- Untuk menjalankan
+```
+npx nx serve
+```
+<br/>
+
 ## Login
 jika ingin langsung mencoba di [web vercel](https://zot-envelope.vercel.app/) gunakan email dan password berikut
 ```md
