@@ -47,7 +47,7 @@ export function LoginFeature() {
 							mb="3"
 							fontWeight="extrabold"
 						>
-							Welcome back
+							Welcome back my brother
 						</Heading>
 						<Heading size="lg" mb="9">
 							Sign in to continue

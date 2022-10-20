@@ -1,10 +1,11 @@
-name: CI
+name: GitHub Actions Vercel Production Deployment
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
     branches:
       - main
-  pull_request:
-
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -18,7 +19,6 @@ jobs:
 
       - name: Run Linting and Testing
         run: npx nx workspace-lint
-      - run: npx nx format:check
       - run: npx nx affected --target=lint --parallel=3
       - run: npx nx affected --target=test --parallel=3 --ci --code-coverage
       # - run: npx nx affected --target=build --parallel=3
