@@ -21,9 +21,16 @@ PASSWORD=plus_ultra
 jika ingin mencoba di local silahkan copy .env.example ke .env lalu atur email dan password sesuai keinginan
 <br/>
 <br/>
+## Bulid
+### Build on Vercel
+Sudah saya tambahkan github workflow untuk vercel. Saat melakukan push branch selain main atau pull request ke main maka github actions akan menjalankan **GitHub Actions Vercel Preview Deployment**. Jika PR sudah di merge ke main, Action akan menjalankan **GitHub Actions Vercel Production Deployment** yang mana akan sekaligus melakukan deploy vercel production.
+### other Platform
+Pastikan untuk mengubah github workflows dan pastikan untuk menambahkan env.
+<br/>
+<br/>
 ## Testing
 > Pastikan .env sudah ada
-### Unit dan Functional Testing
+### Unit and Functional Testing
 jalankan perintah berikut:
 ```
 npx nx run-many --all --target=test --parallel
