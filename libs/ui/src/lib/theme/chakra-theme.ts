@@ -1,7 +1,6 @@
-import type { ComponentStyleConfig } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
 
-export const theme = extendTheme({
+export const myTheme = {
 	config: {
 		initialColorMode: 'light',
 		useSystemColorMode: false,
@@ -36,16 +35,19 @@ export const theme = extendTheme({
 	components: {
 		Button: {
 			variants: {
-				outline: {
+				'outline-envelope': {
 					bg: 'transparent',
 					color: 'white',
 					_hover: { bg: 'transparent' },
 					_focus: { bg: 'transparent' },
+					border: '1px solid white',
 				},
 			},
 			defaultProps: {
 				colorScheme: 'envelope',
 			},
-		} as ComponentStyleConfig,
+		},
 	},
-});
+};
+
+export const theme = extendTheme(myTheme);

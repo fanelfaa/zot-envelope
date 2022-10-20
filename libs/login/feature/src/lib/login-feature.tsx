@@ -31,7 +31,7 @@ export function LoginFeature() {
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 							eiusmod tempor incididun.
 						</Text>
-						<Button variant="outline" px="20">
+						<Button variant="outline-envelope" px="20">
 							View Report{' '}
 							<Box as={FontAwesomeIcon} icon={faExternalLinkAlt} ml="2" />
 						</Button>
