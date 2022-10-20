@@ -37,7 +37,7 @@ describe('web', () => {
 		getInputErrorPassword().contains(/email or password incorrect/i);
 	});
 
-	it('should redirect to home email and password correct and then redirect login after click logout', () => {
+	it('should redirect to home if email and password correct and then redirect login after click logout', () => {
 		getInputEmail().type(Cypress.env('fakeEmail'));
 		getInputPassword().type(Cypress.env('fakePassword'));
 		getBtnSignIn().click();
