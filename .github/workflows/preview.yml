@@ -19,8 +19,6 @@ jobs:
 
       - name: Run Workspace Linting
         run: npx nx workspace-lint
-      - name: Run Format Check
-        run: npx nx format:check
       - name: Run NX Lint Affected Project
         run: npx nx affected --target=lint --parallel=3
       - name: Run NX Test Affected Project
