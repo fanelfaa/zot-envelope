@@ -19,3 +19,13 @@ jalankan perintah berikut:
 ```
 npx nx e2e web-e2e --watch
 ```
+
+<br/>
+
+## Storybook
+> Untuk saat ini storybook hanya tersedia untuk ui components
+
+untuk menjalankan gunakan perintah berikut:
+```
+nx run ui:storybook
+```
