@@ -4,6 +4,7 @@ import { fakeApiLogin } from '@zot-envelope/login/data-access';
 import { Button, Input } from '@zot-envelope/ui';
 import type { FieldInputProps, FormikHelpers, FormikProps } from 'formik';
 import { Field, Form, Formik } from 'formik';
+import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
@@ -21,20 +22,20 @@ export const LoginForm = () => {
 	const navigate = useNavigate();
 	const setUserValue = useUserStore((state) => state.setValue);
 
-	useWhenLogin(() => {
+	const cbLogin = useCallback(() => {
 		// if already login will navigate to dashboard
 		// called whenever apikey exist
 		navigate('/', { replace: true });
-	});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+	useWhenLogin(cbLogin);
 
 	const handleSubmit = async (
 		{ email, password }: LoginValues,
 		actions: FormikHelpers<LoginValues>
 	) => {
-		// same shape as initial values
 		try {
-			const res = await fakeApiLogin({ email, password });
-			const { apikey } = res;
+			const { apikey } = await fakeApiLogin({ email, password });
 			if (apikey) {
 				setUserValue('apikey', apikey);
 				setUserValue('email', email);

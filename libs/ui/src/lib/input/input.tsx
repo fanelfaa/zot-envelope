@@ -53,7 +53,7 @@ export function Input({
 				zIndex="5"
 				px="2"
 				rounded="base"
-				data-testid="label"
+				data-testid={`${label.toLowerCase()}-label`}
 			>
 				{label}
 			</FormLabel>
@@ -65,9 +65,12 @@ export function Input({
 				type={type}
 				name={name}
 				{...inputProps}
-				data-testid="input"
+				data-testid={`${label.toLowerCase()}-input`}
 			/>
-			<FormErrorMessage {...errorProps} data-testid="error">
+			<FormErrorMessage
+				{...errorProps}
+				data-testid={`${label.toLowerCase()}-error`}
+			>
 				{error}
 			</FormErrorMessage>
 		</FormControl>

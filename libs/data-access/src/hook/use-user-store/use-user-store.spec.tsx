@@ -1,18 +1,18 @@
 import { act, renderHook } from '@testing-library/react';
-import * as React from 'react';
 
 import useUserStore from './use-user-store';
 
 describe('useUserStore', () => {
-  it('should render successfully', () => {
-    const { result } = renderHook(() => useUserStore());
+	it('should render successfully', () => {
+		const TEST_APIKEY = 'test apikey';
+		const { result } = renderHook(() => useUserStore());
 
-    expect(result.current.count).toBe(0);
+		expect(result.current.apikey).toBe(undefined);
 
-    act(() => {
-      result.current.increment();
-    });
+		act(() => {
+			result.current.setValue('apikey', TEST_APIKEY);
+		});
 
-    expect(result.current.count).toBe(1);
-  });
+		expect(result.current.apikey).toBe(TEST_APIKEY);
+	});
 });

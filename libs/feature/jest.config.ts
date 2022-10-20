@@ -3,7 +3,8 @@ export default {
   displayName: 'feature',
   preset: '../../jest.preset.js',
   transform: {
-    '^.+\\.[tj]sx?$': 'babel-jest',
+    '^(?!.*\\.(js|jsx|ts|tsx)$)': '@nrwl/react/plugins/jest',
+    '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nrwl/react/babel'] }],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/libs/feature',

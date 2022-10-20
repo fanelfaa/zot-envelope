@@ -8,7 +8,7 @@ export const HomeFeature = () => {
 	const logout = useUserStore((state) => state.logout);
 
 	return (
-		<Center flexDir="column">
+		<Center flexDir="column" data-testid="home-page">
 			<Heading>Home Page</Heading>
 			<Button
 				variant="solid"

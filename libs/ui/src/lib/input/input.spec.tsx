@@ -8,27 +8,31 @@ describe('Input', () => {
 		expect(baseElement).toBeTruthy();
 	});
 
-	it('should have label and input', () => {
-		render(<Input label="password" />);
+	const labelName = 'password';
+	it('should have label, input and no error', async () => {
+		render(<Input label={labelName} />);
 
-		const label = screen.getByTestId('label');
+		const label = screen.getByTestId(`${labelName}-label`);
 		expect(label).toBeTruthy();
 
-		const input = screen.getByTestId('input');
+		const input = screen.getByTestId(`${labelName}-input`);
 		expect(input).toBeTruthy();
+
+		const error = screen.queryByTestId(`${labelName}-error`);
+		expect(error).toBeNull();
 	});
 
 	it('should render correct label', () => {
-		render(<Input label="password" />);
+		render(<Input label={labelName} />);
 
-		const { getByText } = within(screen.getByTestId('label'));
+		const { getByText } = within(screen.getByTestId(`${labelName}-label`));
 		expect(getByText('password')).toBeTruthy();
 	});
 
 	it('should render correct error', () => {
-		render(<Input label="password" isInvalid error="password incorrect" />);
+		render(<Input label={labelName} isInvalid error="password incorrect" />);
 
-		const { getByText } = within(screen.getByTestId('error'));
+		const { getByText } = within(screen.getByTestId(`${labelName}-error`));
 		expect(getByText('password incorrect')).toBeTruthy();
 	});
 });

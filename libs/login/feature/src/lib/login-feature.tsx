@@ -7,7 +7,11 @@ import LoginForm from './login-form/login-form';
 
 export function LoginFeature() {
 	return (
-		<Grid gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }} color="white">
+		<Grid
+			gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
+			color="white"
+			data-testid="login-page"
+		>
 			<Box
 				bg="primaryDark"
 				px={{ base: '5', md: '10' }}
