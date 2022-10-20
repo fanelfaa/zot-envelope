@@ -25,6 +25,8 @@ jobs:
         run: npx nx affected --target=lint --parallel=3
       - name: Run NX Test Affected Project
         run: npx nx affected --target=test --parallel=3 --ci --code-coverage
+      - name: Run End to End Test for Web App
+        run: npx nx e2e web-e2e
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
