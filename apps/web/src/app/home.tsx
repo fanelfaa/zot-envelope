@@ -17,6 +17,7 @@ export const HomeFeature = () => {
 						navigate('/login', { replace: true });
 					});
 				}}
+				data-testid="button-logout"
 			>
 				Logout
 			</Button>

@@ -15,7 +15,7 @@ export const fakeApiLogin = async ({
 			if (email === FAKE_EMAIL && password === FAKE_PASSWORD) {
 				resolve({ apikey: FAKE_APIKEY });
 			} else {
-				reject(new Error('email or password does not exist'));
+				reject(new Error('email or password incorrect!'));
 			}
 		}, 1000);
 	});
