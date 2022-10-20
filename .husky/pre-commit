@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+npx nx format:check
 npx nx run-many --all --target=lint --parallel
 npx nx run-many --all --target=test --parallel
