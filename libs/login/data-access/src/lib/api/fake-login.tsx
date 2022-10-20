@@ -1,5 +1,6 @@
-const FAKE_EMAIL = 'fandi@abyss.com';
-const FAKE_PASSWORD = 'rahasiamu';
+/* eslint-disable @typescript-eslint/dot-notation */
+const FAKE_EMAIL = process.env['NX_FAKE_LOGIN_EMAIL'];
+const FAKE_PASSWORD = process.env['NX_FAKE_LOGIN_PASSWORD'];
 const FAKE_APIKEY = 'this is an apikey';
 
 export const fakeApiLogin = async ({
