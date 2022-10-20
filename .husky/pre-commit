@@ -3,3 +3,4 @@
 
 npx nx run-many --all --target=lint --parallel
 npx nx run-many --all --target=test --parallel
+npx nx e2e web-e2e
