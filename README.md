@@ -4,10 +4,6 @@ Haloo... saya Fandi. Makasih udah mampir.  project ini adalah pekerjaan saya unt
 ```
 fandi.ilham.bb@gmail.com
 ```
-atau wa ke nomor :
-```
-0822-3041-9331
-```
 
 > Have a nice day!!
 <br/>
